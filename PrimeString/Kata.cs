@@ -16,7 +16,9 @@ namespace PrimeString
             }
             for (var i = 1; i <= input.Length / 2; i++)
             {
-                if (input.Split(new[] { input.Substring(0, i) }, StringSplitOptions.RemoveEmptyEntries).Length == 0)
+                if (input.Length % i != 0) continue;
+                var separator = new[] { input.Substring(0, i) };
+                if (input.Split(separator, StringSplitOptions.RemoveEmptyEntries).Length == 0)
                 {
                     return false;
                 }
