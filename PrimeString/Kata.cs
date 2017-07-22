@@ -8,8 +8,19 @@ namespace PrimeString
 {
     public class Kata
     {
-        public bool PrimeString(string s)
+        public bool PrimeString(string input)
         {
+            if (input.Length == 1)
+            {
+                return true;
+            }
+            for (var i = 1; i <= input.Length / 2; i++)
+            {
+                if (input.Split(new[] { input.Substring(0, i) }, StringSplitOptions.RemoveEmptyEntries).Length == 0)
+                {
+                    return false;
+                }
+            }
             return true;
         }
     }
